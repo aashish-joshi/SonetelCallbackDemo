@@ -10,7 +10,7 @@
     A demo website to demonstrate how to use the Sonetel Callback API.
     <br />
     <br />
-    <a href="https://github.com/">View Demo</a>
+    <a href="https://sonetel-callback-demo.netlify.app/">View Demo</a>
     ·
     <a href="https://sonetel.com/en/developer/" target="_blank">Sonetel Developer API</a>
     .
