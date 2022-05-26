@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #fdfdfd;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+}
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 0.5rem;
+  text-align: center;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form{
+  padding: 5%;
+}
+
+.sonetel-button{
+  color: white;
+  background-color: #68d0d0;
+  border-radius: 4px;
+}
+
+/* .sonetel-input{
+  width: 50%;
+} */

@@ -1,94 +1,207 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonetel Callback Demo</title>
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="manifest" href="images/site.webmanifest">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sonetel | Callback App</title>
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    <div class="w3-display-topright w3-margin w3-xxlarge">
-        <a href="https://github.com/aashish-joshi/SonetelCallbackDemo" target="_blank" title="See source on GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
-        <a href="https://sonetel.com/en/developer/" target="_blank" title="Sonetel Developer API"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
-    </div>
-    <div class="w3-display-middle">
-        <h1 class="w3-jumbo w3-animate-top">Sonetel Callback Demo</h1>
-        <hr class="w3-border-grey" style="margin:auto;width:40%">
-        <p class="w3-large w3-left-align" style="margin-left: 5%; margin-right: 5%;">Signed in <span id="sign-in-status"></span>
-        <span class="w3-right">
-            <button id="logoutButton" class="w3-button" title="Logout" onclick="logout()">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
+    <link rel="manifest" href="manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/site.webmanifest" />
+
+    <meta name="apple-mobile-web-app-status-bar" content="#68d0d0" />
+    <meta name="theme-color" content="#68d0d0" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <body>
+    <main>
+      <nav>
+        <div class="w3-display-topright w3-margin w3-xxlarge">
+          <a
+            href="https://github.com/aashish-joshi/SonetelCallbackDemo"
+            target="_blank"
+            title="See source on GitHub"
+            ><i class="fa fa-github" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://sonetel.com/en/developer/"
+            target="_blank"
+            title="Sonetel Developer API"
+            ><i class="fa fa-question-circle" aria-hidden="true"></i
+          ></a>
+        </div>
+      </nav>
+      <div class="w3-display-middle">
+        <h1 class="w3-jumbo w3-animate-top">Sonetel Callback App</h1>
+        <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+        <p
+          class="w3-large w3-left-align"
+          style="margin-left: 5%; margin-right: 5%"
+        >
+          Signed in <span id="sign-in-status"></span>
+          <span class="w3-right">
+            <button
+              id="logoutButton"
+              class="w3-button"
+              title="Logout"
+              onclick="logout()"
+            >
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
             </button>
-        </span>
+          </span>
         </p>
         <div id="signin">
-            <form id="loginForm" method="post" class="w3-container w3-card-4 w3-margin" onsubmit="return login()">
-                <!-- Sonetel Username -->
-                <div class="w3-row w3-section">
-                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user-o"></i></div>
-                    <div class="w3-rest">
-                        <input class="w3-input w3-border" id="username" name="username" type="email" placeholder="Your Sonetel username" required>
-                    </div>
-                </div>
-                <!-- Sonetel Password -->
-                <div class="w3-row w3-section">
-                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-key"></i></div>
-                    <div class="w3-rest">
-                        <input class="w3-input w3-border" id="password" name="password" type="password" placeholder="Your Sonetel password" required>
-                    </div>
-                </div>
-                <input type="hidden" id="grant_type" name="grant_type" value="password">
-                <input type="hidden" id="refresh" name="refresh" value="no">
-                <!-- Sign in button -->
-                <p class="w3-center">
-                    <input type="submit" class="w3-button w3-section w3-blue w3-ripple" value="Sign in">
-                </p>
-            </form>
+          <form
+            id="loginForm"
+            method="post"
+            class="w3-container w3-card-4 w3-margin"
+            onsubmit="return login()"
+          >
+            <!-- Sonetel Username -->
+            <div class="w3-row w3-section">
+              <div class="w3-col" style="width: 50px">
+                <i class="w3-xxlarge fa fa-user-o"></i>
+              </div>
+              <div class="w3-rest">
+                <input
+                  class="w3-input w3-border"
+                  id="username"
+                  name="username"
+                  type="email"
+                  placeholder="Your Sonetel username"
+                  required
+                />
+              </div>
+            </div>
+            <!-- Sonetel Password -->
+            <div class="w3-row w3-section">
+              <div class="w3-col" style="width: 50px">
+                <i class="w3-xxlarge fa fa-key"></i>
+              </div>
+              <div class="w3-rest">
+                <input
+                  class="w3-input w3-border"
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Your Sonetel password"
+                  required
+                />
+              </div>
+            </div>
+            <input
+              type="hidden"
+              id="grant_type"
+              name="grant_type"
+              value="password"
+            />
+            <input type="hidden" id="refresh" name="refresh" value="no" />
+            <!-- Sign in button -->
+            <p class="w3-center">
+              <input
+                type="submit"
+                class="w3-button w3-section sonetel-button w3-ripple"
+                value="Sign in"
+              />
+              <br>
+              <a href="https://app.sonetel.com/reset-password" target="_blank">Reset Password</a>
+            </p>
+          </form>
         </div>
         <div id="callback">
-            <form id="callbackForm" method="post" class="w3-container w3-card-4 w3-margin" onsubmit="return makeCall()">
-
-                <div class="w3-row w3-section">
-                    <h3 onclick="toggleDisplay('how-to-use')" style="cursor: help;">How to use?</h3>
-                    <div id="how-to-use" class="w3-container w3-hide">
-                        <p><strong>Step 1</strong>: Enter your number in the 'Number 1' field.</p>
-                        <p><strong>Step 2</strong>: Enter the number of the person you wish to speak to in 'Number 2' field.</p>
-                        <p><strong>Step 3</strong>: Click on the 'Call' button.</p>
-                        <p class="w3-left w3-small w3-red">Tip: Enter the numbers in the international +NUMBER format.</p>
-                    </div>
-                </div>
-
-                <!-- Number 1 -->
-                <div class="w3-row w3-section">
-                    <div class="w3-col" style="width: 100px;">Number 1</div>
-                    <div class="w3-rest">
-                        <input class="w3-input w3-border" id="number1" name="number1" type="tel" placeholder="Enter your number" required>
-                    </div>
-                </div>
-                <!-- Number 2 -->
-                <div class="w3-row w3-section">
-                    <div class="w3-col" style="width:100px">Number 2</div>
-                    <div class="w3-rest">
-                        <input class="w3-input w3-border" id="number2" name="number2" type="tel" placeholder="Enter the number to call" required>
-                    </div>
-                </div>
-                
-                <!-- Sign in button -->
-                <p class="w3-center">
-                    <button type="submit" class="w3-button w3-section w3-blue w3-ripple">
-                        <i class="fa fa-phone" aria-hidden="true"></i> Call
-                    </button>
+          <form
+            id="callbackForm"
+            method="post"
+            class="w3-container w3-card-4 w3-margin"
+            onsubmit="return makeCall()"
+          >
+            <div class="w3-row w3-section">
+              <h5 onclick="toggleDisplay('how-to-use')" style="cursor: help;">
+                <button style="padding: 2%;">How to use?</button>
+              </h3>
+              <div id="how-to-use" class="w3-container w3-hide w3-left-align">
+                <p>
+                  <strong>Step 1</strong>: Enter your number in the 'Number 1'
+                  field.
                 </p>
-            </form>
+                <p>
+                  <strong>Step 2</strong>: Enter the number of the person you
+                  wish to speak to in 'Number 2' field.
+                </p>
+                <p><strong>Step 3</strong>: Click on the 'Call' button.</p>
+                <br>
+                <p class="w3-left w3-small w3-red">
+                  Tip: Enter the numbers in the international +NUMBER format.
+                </p>
+              </div>
+            </div>
+
+            <!-- Number 1 -->
+            <div class="w3-row w3-section">
+              <div class="w3-col" style="width: 100px">Number 1</div>
+              <div class="w3-rest">
+                <input
+                  class="w3-input w3-border sonetel-input"
+                  id="number1"
+                  name="number1"
+                  type="tel"
+                  placeholder="Enter your number"
+                  required
+                  autocomplete="on"
+                />
+              </div>
+            </div>
+            <!-- Number 2 -->
+            <div class="w3-row w3-section">
+              <div class="w3-col" style="width: 100px;">Number 2</div>
+              <div class="w3-rest">
+                <input
+                  class="w3-input w3-border sonetel-input"
+                  id="number2"
+                  name="number2"
+                  type="tel"
+                  placeholder="Enter the number to call"
+                  required
+                  autocomplete="on"
+                />
+              </div>
+            </div>
+
+            <!-- Call button -->
+            <p class="w3-center">
+              <button
+                type="submit"
+                class="w3-button w3-section sonetel-button w3-ripple"
+              >
+                <i class="fa fa-phone" aria-hidden="true"></i> Call
+              </button>
+            </p>
+          </form>
         </div>
-    </div>
-    <script src="sonetel.js"></script>
-</body>
+      </div>
+      <script src="sonetel.js"></script>
+    </main>
+  </body>
 </html>
