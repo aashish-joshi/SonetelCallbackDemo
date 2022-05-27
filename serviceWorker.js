@@ -4,7 +4,7 @@ const staticSonetelPwa = "sonetel-callback-pwa-v1";
 const assets = [
   "/",
   "/index.html",
-  "/sonetel.js",
+  //"/sonetel.js",
   "/assets/style.css",
   "/images/android-chrome-512x512.png",
   "/images/android-chrome-192x192.png",

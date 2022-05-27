@@ -1,11 +1,21 @@
 {
-  "name": "Sonetel Callback App",
-  "short_name": "CallbackApp",
+  "name": "Sonetel Callback",
+  "short_name": "SonetelCallback",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#fdfdfd",
   "theme_color": "#68d0d0",
   "orientation": "portrait-primary",
+  "protocol_handlers" : [
+      {
+          "protocol" : "web+callto",
+          "url" :"index.html?num=%s"
+      },
+      {
+        "protocol": "tel",
+        "url":"index.html?num=%s"
+      }
+  ],
   "icons": [
     {
       "src": "/images/android-chrome-512x512.png",

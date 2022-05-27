@@ -17,3 +17,5 @@
     <a href="https://sonetel.com/en/developer/api-documentation/" target="_blank">API Documentation</a>
   </p>
 </div>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/46086b1a-b01d-4338-b600-a78fd2c2fd34/deploy-status)](https://app.netlify.com/sites/sonetel-callback-demo/deploys)

@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sonetel | Callback App</title>
+    <title>Sonetel Callback App</title>
 
     <link rel="manifest" href="manifest.json" />
     <link
@@ -54,12 +54,9 @@
         </div>
       </nav>
       <div class="w3-display-middle">
-        <h1 class="w3-jumbo w3-animate-top">Sonetel Callback App</h1>
+        <h1 class="w3-jumbo">Sonetel Callback App</h1>
         <hr class="w3-border-grey" style="margin: auto; width: 40%" />
-        <p
-          class="w3-large w3-left-align"
-          style="margin-left: 5%; margin-right: 5%"
-        >
+        <p class="w3-large w3-left-align" style="margin: 5%">
           Signed in <span id="sign-in-status"></span>
           <span class="w3-right">
             <button
@@ -92,6 +89,8 @@
                   type="email"
                   placeholder="Your Sonetel username"
                   required
+                  autocomplete="on"
+                  autofocus="yes"
                 />
               </div>
             </div>
@@ -108,6 +107,7 @@
                   type="password"
                   placeholder="Your Sonetel password"
                   required
+                  autocomplete="on"
                 />
               </div>
             </div>
@@ -139,7 +139,7 @@
           >
             <div class="w3-row w3-section">
               <h5 onclick="toggleDisplay('how-to-use')" style="cursor: help;">
-                <button style="padding: 2%;">How to use?</button>
+                <span style="padding: 2%;"><u>How to use?</u></span>
               </h3>
               <div id="how-to-use" class="w3-container w3-hide w3-left-align">
                 <p>
