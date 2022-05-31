@@ -8,6 +8,7 @@
  *
  */
 
+
 console.log("Sonetel callback app load");
 
 // If the user has placed a call and their callback number is saved, show it automatically.
@@ -16,7 +17,7 @@ if(localStorage.getItem("number1")){
   document.getElementById("number1").value = localStorage.getItem("number1");
 }
 
-getUrlParam()
+getUrlParam();
 
 // Get the URL parameters
 function getUrlParam() {
@@ -29,7 +30,7 @@ function getUrlParam() {
     number2 = number2.replaceAll("%20","");
     number2 = number2.replaceAll("%28","");
     number2 = number2.replaceAll("%29","");
-    document.getElementById("number2").value = "+" + number2.replaceAll(/\D/g,'');
+    document.getElementById("number2").value = number2.replaceAll(/\D/g,'');
     return qParams.get("num");
   }
   return "";
@@ -68,7 +69,7 @@ async function getSonetelToken() {
   console.log("get token");
 
   myHeaders = new Headers();
-  myHeaders.append("Authorization", "Basic c29uZXRlbC13ZWI6c29uZXRlbC13ZWI=");
+  myHeaders.append("Authorization", 'Basic ' + btoa("sonetel-web" + ":" + "sonetel-web"));
   url = "https://api.sonetel.com/SonetelAuth/beta/oauth/token";
 
   const response = await fetch(url, {
